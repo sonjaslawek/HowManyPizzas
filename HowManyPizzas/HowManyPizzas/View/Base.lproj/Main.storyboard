@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HowManyPizzas" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FirstViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="b1p-rI-xZl">
+                                <rect key="frame" x="-0.5" y="-2" width="415" height="900"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="415" id="18U-bX-X0s"/>
+                                    <constraint firstAttribute="height" constant="900" id="k2d-aR-uRE"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhW-dy-Pi1">
+                                <rect key="frame" x="0.0" y="277" width="428" height="213.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="135" placeholderIntrinsicHeight="67.5" text="Hi! 😊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMW-yU-LtS">
+                                        <rect key="frame" x="146.5" y="0.0" width="135" height="123.5"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="50"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X1-ZJ-XEF">
+                                        <rect key="frame" x="28" y="90" width="372.5" height="123.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="To begin please click START!">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="40" name="Papyrus"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.29379424038312291" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="StartButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsX-C4-Khk">
+                                <rect key="frame" x="138" y="515" width="138" height="154"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="154" id="C9h-Ur-pPg"/>
+                                    <constraint firstAttribute="height" constant="154" id="Igq-b3-tXp"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="tinted" imagePlacement="top" title="START" imagePadding="11" cornerStyle="capsule">
+                                    <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                        <hierarchicalColors>
+                                            <color systemColor="systemOrangeColor"/>
+                                            <color systemColor="secondaryLabelColor"/>
+                                            <color systemColor="tertiaryLabelColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="100" scale="large"/>
+                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                                    <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="StartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wtc-rk-6Fl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JsX-C4-Khk" firstAttribute="centerX" secondItem="b1p-rI-xZl" secondAttribute="centerX" id="KW1-Ho-ALF"/>
+                            <constraint firstItem="b1p-rI-xZl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-2" id="apc-34-CLP"/>
+                            <constraint firstItem="JsX-C4-Khk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="e7g-Ii-aIV"/>
+                            <constraint firstItem="JsX-C4-Khk" firstAttribute="top" secondItem="KhW-dy-Pi1" secondAttribute="bottom" constant="24.5" id="eF4-yo-cJ4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="KhW-dy-Pi1" secondAttribute="leading" id="enK-Ek-sxD"/>
+                            <constraint firstItem="KhW-dy-Pi1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="14" id="h7a-IS-WvO"/>
+                            <constraint firstItem="b1p-rI-xZl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kG4-wv-1Rn"/>
+                            <constraint firstItem="b1p-rI-xZl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tqU-bq-q29"/>
+                            <constraint firstAttribute="trailing" secondItem="b1p-rI-xZl" secondAttribute="trailing" constant="-0.5" id="uGh-qk-EEV"/>
+                            <constraint firstItem="b1p-rI-xZl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-0.5" id="utb-3g-Q6P"/>
+                            <constraint firstAttribute="bottom" secondItem="b1p-rI-xZl" secondAttribute="bottom" constant="-2" id="v7i-2h-Nwk"/>
+                            <constraint firstItem="KhW-dy-Pi1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="233" id="y7n-jf-AAW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FirstViewBackground" width="1080" height="1920"/>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
