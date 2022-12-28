@@ -184,6 +184,9 @@
                                     <color key="baseForegroundColor" systemColor="tintColor"/>
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="CalculateButtonPressed:" destination="jVa-gS-pjk" eventType="touchUpInside" id="cyR-KX-790"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NIS-vo-zFa"/>
@@ -198,6 +201,11 @@
                             <constraint firstItem="Pza-3n-dCY" firstAttribute="centerY" secondItem="moq-8C-nEn" secondAttribute="centerY" constant="160.5" id="zvW-Pe-tar"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NumberOfPeopleTextField" destination="Sjz-f2-e41" id="SRE-O6-UYw"/>
+                        <outlet property="NumberOfSlices" destination="QDj-Qf-RCG" id="dFM-LM-giO"/>
+                        <outlet property="PizzaSizeTextfield" destination="ENX-By-glf" id="erp-8F-tve"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o18-9F-83D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
