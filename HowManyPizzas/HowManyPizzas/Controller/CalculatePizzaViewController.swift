@@ -15,7 +15,7 @@ class CalculatePizzaViewController: UIViewController {
     @IBOutlet weak var NumberOfSlices: UISegmentedControl!
     
     let picker = UIPickerView()
-    let pizzaSize = ["32 cm", "42 cm", "50 cm"]
+    let pizzaSize = ["32 cm", "42 cm", "50 cm", "72cm"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
