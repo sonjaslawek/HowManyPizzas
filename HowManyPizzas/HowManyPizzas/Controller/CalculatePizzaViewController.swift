@@ -15,21 +15,41 @@ class CalculatePizzaViewController: UIViewController {
     @IBOutlet weak var NumberOfSlices: UISegmentedControl!
     
     let picker = UIPickerView()
-    let pizzaSize = ["32 cm", "42 cm", "50 cm", "72cm"]
+    let pizzaSize = ["32", "42", "50", "72"]
+    var peopleForPizza: Int {
+        get {
+            guard let people = Int(NumberOfPeopleTextField.text!) else {
+                fatalError("Nothing was writen")
+            }
+            return people
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.dataSource = self
         picker.delegate = self
+        NumberOfPeopleTextField.delegate = self
         PizzaSizeTextfield.inputView = picker
         
     }
     
     @IBAction func CalculateButtonPressed(_ sender: Any) {
+       
+        if peopleForPizza < 20 {
+            return
+        } else {
+            let alert = UIAlertController(title: "Are you sure?", message: "You have too much people to your order!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK!", style: .default)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
     }
-  
+    
+
 }
-// MARK: - UIPickerViewDataSource, UIPickerViewDelegate
+    
+// MARK: - UIPickerViewDataSource, UIPickerViewDelegate Methods
 extension CalculatePizzaViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -40,11 +60,29 @@ extension CalculatePizzaViewController: UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pizzaSize[row]
+        return "\(pizzaSize[row]) cm"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        PizzaSizeTextfield.text = pizzaSize[row]
+        PizzaSizeTextfield.text = "\(pizzaSize[row]) cm"
         PizzaSizeTextfield.resignFirstResponder()
     }
+}
+
+// MARK: - UITextFieldDelegate Method
+extension CalculatePizzaViewController: UITextFieldDelegate {
+   
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        NumberOfPeopleTextField.text = ""
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxCharacters = 3
+        let currentNumber: NSString = textField.text! as NSString
+        let newNumber: NSString = currentNumber.replacingCharacters(in: range, with: string) as NSString
+        if newNumber.length == maxCharacters {
+            textField.resignFirstResponder()
+        }
+        return newNumber.length <= maxCharacters
+    }
+  
 }
