@@ -159,6 +159,9 @@
                                                     <segment title="5"/>
                                                     <segment title="6"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="numberOfSlices:" destination="jVa-gS-pjk" eventType="valueChanged" id="G1h-Bp-AG8"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -203,7 +206,6 @@
                     </view>
                     <connections>
                         <outlet property="NumberOfPeopleTextField" destination="Sjz-f2-e41" id="SRE-O6-UYw"/>
-                        <outlet property="NumberOfSlices" destination="QDj-Qf-RCG" id="dFM-LM-giO"/>
                         <outlet property="PizzaSizeTextfield" destination="ENX-By-glf" id="erp-8F-tve"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,7 @@ class CalculatePizzaViewController: UIViewController {
     
     @IBOutlet weak var PizzaSizeTextfield: UITextField!
     @IBOutlet weak var NumberOfPeopleTextField: UITextField!
-    @IBOutlet weak var NumberOfSlices: UISegmentedControl!
+ 
     
     let picker = UIPickerView()
     let pizzaSize = ["32", "42", "50", "72"]
@@ -24,6 +24,7 @@ class CalculatePizzaViewController: UIViewController {
             return people
         }
     }
+    var pizzaSlices = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,25 @@ class CalculatePizzaViewController: UIViewController {
         NumberOfPeopleTextField.delegate = self
         PizzaSizeTextfield.inputView = picker
         
+    }
+    
+    @IBAction func numberOfSlices(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            pizzaSlices = 1
+        case 1:
+            pizzaSlices = 2
+        case 2:
+            pizzaSlices = 3
+        case 3:
+            pizzaSlices = 4
+        case 4:
+            pizzaSlices = 5
+        case 5:
+            pizzaSlices = 6
+        default:
+            print("User not choose anything :(")
+        }
     }
     
     @IBAction func CalculateButtonPressed(_ sender: Any) {
@@ -44,9 +64,9 @@ class CalculatePizzaViewController: UIViewController {
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
+
     }
     
-
 }
     
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate Methods
