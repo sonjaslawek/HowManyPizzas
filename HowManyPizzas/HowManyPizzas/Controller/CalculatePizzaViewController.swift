@@ -16,6 +16,7 @@ class CalculatePizzaViewController: UIViewController {
     
     let picker = UIPickerView()
     let pizzaSize = ["32", "42", "50", "72"]
+   
     var peopleForPizza: Int {
         get {
             guard let people = Int(NumberOfPeopleTextField.text!) else {
@@ -25,6 +26,7 @@ class CalculatePizzaViewController: UIViewController {
         }
     }
     var pizzaSlices = Int()
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,7 @@ class CalculatePizzaViewController: UIViewController {
     @IBAction func CalculateButtonPressed(_ sender: Any) {
        
         if peopleForPizza < 20 {
+            //calculatePizza()
             return
         } else {
             let alert = UIAlertController(title: "Are you sure?", message: "You have too much people to your order!", preferredStyle: .alert)
@@ -64,8 +67,17 @@ class CalculatePizzaViewController: UIViewController {
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
+        
 
     }
+    
+//    func calculatePizza() {
+//        let chosenSize = Int(pizzaSize.)
+//        //let pizzaSizeToCalc = pizzaSize
+//        let pizzaPerPerson = (peopleForPizza * pizzaSlices/(chosenSize/2))
+//        print(chosenSize)
+//        print(pizzaPerPerson)
+//    }
     
 }
     

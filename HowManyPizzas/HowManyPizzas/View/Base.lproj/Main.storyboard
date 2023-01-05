@@ -213,10 +213,79 @@
             </objects>
             <point key="canvasLocation" x="739.13043478260875" y="87.723214285714278"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ko3-z7-oyl">
+            <objects>
+                <viewController id="5yF-Fv-M5Y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="avO-Te-QU1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThirdView" translatesAutoresizingMaskIntoConstraints="NO" id="X5r-cg-JBK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-no-IPk">
+                                <rect key="frame" x="97" y="570" width="220" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="CALC AGAIN? " cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="CalculateButtonPressed:" destination="jVa-gS-pjk" eventType="touchUpInside" id="Aas-9S-IRd"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="gui-dT-ofU">
+                                <rect key="frame" x="89" y="242" width="237.5" height="269.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You should order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGJ-1h-3xo">
+                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="obliczona wartosc " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obJ-5G-jOs">
+                                        <rect key="frame" x="48" y="124.5" width="142" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizzas! 😁" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyN-lR-Vbp">
+                                        <rect key="frame" x="46.5" y="230" width="144.5" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cql-Sa-CbP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X5r-cg-JBK" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" id="4T7-j0-60Z"/>
+                            <constraint firstItem="gui-dT-ofU" firstAttribute="top" secondItem="Cql-Sa-CbP" secondAttribute="top" constant="198" id="4tS-GZ-Fo0"/>
+                            <constraint firstItem="Cql-Sa-CbP" firstAttribute="trailing" secondItem="gui-dT-ofU" secondAttribute="trailing" constant="87.5" id="5rW-Gx-FQT"/>
+                            <constraint firstItem="X5r-cg-JBK" firstAttribute="top" secondItem="avO-Te-QU1" secondAttribute="top" id="Kb4-W7-SLN"/>
+                            <constraint firstItem="X5r-cg-JBK" firstAttribute="trailing" secondItem="Cql-Sa-CbP" secondAttribute="trailing" id="LvJ-6q-HQb"/>
+                            <constraint firstAttribute="bottom" secondItem="X5r-cg-JBK" secondAttribute="bottom" id="P5j-cF-pgg"/>
+                            <constraint firstItem="hMl-no-IPk" firstAttribute="top" secondItem="gui-dT-ofU" secondAttribute="bottom" constant="58.5" id="V5l-Vm-8S9"/>
+                            <constraint firstItem="gui-dT-ofU" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" constant="89" id="uB6-3n-4yh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nIt-yU-f5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476.8115942028987" y="87.723214285714278"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FirstViewBackground" width="1080" height="1920"/>
         <image name="SecondViewBackground" width="1080" height="1920"/>
+        <image name="ThirdView" width="1080" height="1920"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -229,6 +298,12 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
