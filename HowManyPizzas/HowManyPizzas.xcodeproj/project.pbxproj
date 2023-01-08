@@ -12,6 +12,7 @@
 		6304F5FB29547A7800DD52B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304F5FA29547A7800DD52B0 /* ViewController.swift */; };
 		6304F5FE29547A7800DD52B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6304F5FC29547A7800DD52B0 /* Main.storyboard */; };
 		6304F60329547A7900DD52B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6304F60129547A7900DD52B0 /* LaunchScreen.storyboard */; };
+		63BDE8AC296B14A100F3A0B6 /* PizzaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDE8AB296B14A100F3A0B6 /* PizzaModel.swift */; };
 		63EB83CC295B120F00A35A2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EB83CB295B120F00A35A2C /* Assets.xcassets */; };
 		63EB83CE295B404500A35A2C /* CalculatePizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB83CD295B404500A35A2C /* CalculatePizzaViewController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		6304F5FD29547A7800DD52B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6304F60229547A7900DD52B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6304F60429547A7900DD52B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63BDE8AB296B14A100F3A0B6 /* PizzaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaModel.swift; sourceTree = "<group>"; };
 		63EB83CB295B120F00A35A2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63EB83CD295B404500A35A2C /* CalculatePizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePizzaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +60,7 @@
 		6304F5F529547A7800DD52B0 /* HowManyPizzas */ = {
 			isa = PBXGroup;
 			children = (
-				63EB83C7295AF00D00A35A2C /* Model */,
+				63BDE8AA296B144700F3A0B6 /* Model */,
 				63EB83C8295AF01C00A35A2C /* View */,
 				63EB83C9295AF02300A35A2C /* Controller */,
 				6304F60429547A7900DD52B0 /* Info.plist */,
@@ -67,9 +69,10 @@
 			path = HowManyPizzas;
 			sourceTree = "<group>";
 		};
-		63EB83C7295AF00D00A35A2C /* Model */ = {
+		63BDE8AA296B144700F3A0B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				63BDE8AB296B14A100F3A0B6 /* PizzaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BDE8AC296B14A100F3A0B6 /* PizzaModel.swift in Sources */,
 				63EB83CE295B404500A35A2C /* CalculatePizzaViewController.swift in Sources */,
 				6304F5FB29547A7800DD52B0 /* ViewController.swift in Sources */,
 				6304F5F729547A7800DD52B0 /* AppDelegate.swift in Sources */,

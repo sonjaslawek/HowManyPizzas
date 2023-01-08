@@ -9,78 +9,74 @@ import UIKit
 
 class CalculatePizzaViewController: UIViewController {
     
-    
-    @IBOutlet weak var PizzaSizeTextfield: UITextField!
-    @IBOutlet weak var NumberOfPeopleTextField: UITextField!
- 
+    @IBOutlet weak var pizzaSizeTextfield: UITextField!
+    @IBOutlet weak var numberOfPeopleTextField: UITextField!
     
     let picker = UIPickerView()
-    let pizzaSize = ["32", "42", "50", "72"]
-   
-    var peopleForPizza: Int {
+    var pizzaSizes = [32, 42, 50, 72]
+    var endNumbersOfPeople: Int {
         get {
-            guard let people = Int(NumberOfPeopleTextField.text!) else {
-                fatalError("Nothing was writen")
+            guard let peopleTextfield = numberOfPeopleTextField.text, let people = Int(peopleTextfield)
+            else {
+                fatalError()
             }
             return people
         }
     }
-    var pizzaSlices = Int()
- 
+    
+    private var model = PizzaModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.dataSource = self
         picker.delegate = self
-        NumberOfPeopleTextField.delegate = self
-        PizzaSizeTextfield.inputView = picker
+        numberOfPeopleTextField.delegate = self
+        pizzaSizeTextfield.inputView = picker
         
     }
     
     @IBAction func numberOfSlices(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            pizzaSlices = 1
+            model.pizzaSlices = 1
         case 1:
-            pizzaSlices = 2
+            model.pizzaSlices = 2
         case 2:
-            pizzaSlices = 3
+            model.pizzaSlices = 3
         case 3:
-            pizzaSlices = 4
+            model.pizzaSlices = 4
         case 4:
-            pizzaSlices = 5
+            model.pizzaSlices = 5
         case 5:
-            pizzaSlices = 6
+            model.pizzaSlices = 6
         default:
             print("User not choose anything :(")
         }
     }
     
     @IBAction func CalculateButtonPressed(_ sender: Any) {
-       
-        if peopleForPizza < 20 {
-            //calculatePizza()
-            return
+        model.peopleForPizza = endNumbersOfPeople
+        
+        if endNumbersOfPeople < 20 {
+            let results = calculatePizzas()
         } else {
             let alert = UIAlertController(title: "Are you sure?", message: "You have too much people to your order!", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK!", style: .default)
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
-        
-
     }
     
-//    func calculatePizza() {
-//        let chosenSize = Int(pizzaSize.)
-//        //let pizzaSizeToCalc = pizzaSize
-//        let pizzaPerPerson = (peopleForPizza * pizzaSlices/(chosenSize/2))
-//        print(chosenSize)
-//        print(pizzaPerPerson)
-//    }
-    
+    func calculatePizzas() -> Int {
+        let cmToInches = Double(model.pizzaSize) / 2.54
+        let slices = cmToInches - 4
+        let numberOfPizzas = (Double(model.peopleForPizza) * Double(model.pizzaSlices) / slices)
+        let finishValue = Int(ceil(numberOfPizzas))
+        
+        return finishValue
+    }
 }
-    
+
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate Methods
 extension CalculatePizzaViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -88,25 +84,27 @@ extension CalculatePizzaViewController: UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pizzaSize.count
+        return pizzaSizes.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(pizzaSize[row]) cm"
+        return "\(pizzaSizes[row]) cm"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        PizzaSizeTextfield.text = "\(pizzaSize[row]) cm"
-        PizzaSizeTextfield.resignFirstResponder()
+        pizzaSizeTextfield.text = "\(pizzaSizes[row]) cm"
+        model.pizzaSize = pizzaSizes[row]
+        pizzaSizeTextfield.resignFirstResponder()
     }
 }
 
 // MARK: - UITextFieldDelegate Method
 extension CalculatePizzaViewController: UITextFieldDelegate {
-   
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        NumberOfPeopleTextField.text = ""
+        numberOfPeopleTextField.text = ""
     }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxCharacters = 3
         let currentNumber: NSString = textField.text! as NSString
@@ -116,5 +114,4 @@ extension CalculatePizzaViewController: UITextFieldDelegate {
         }
         return newNumber.length <= maxCharacters
     }
-  
 }
