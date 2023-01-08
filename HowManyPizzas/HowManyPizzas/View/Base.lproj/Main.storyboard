@@ -205,8 +205,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="NumberOfPeopleTextField" destination="Sjz-f2-e41" id="SRE-O6-UYw"/>
-                        <outlet property="PizzaSizeTextfield" destination="ENX-By-glf" id="erp-8F-tve"/>
+                        <outlet property="numberOfPeopleTextField" destination="Sjz-f2-e41" id="NRG-CR-jvP"/>
+                        <outlet property="pizzaSizeTextfield" destination="ENX-By-glf" id="bTT-hh-3gh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o18-9F-83D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
