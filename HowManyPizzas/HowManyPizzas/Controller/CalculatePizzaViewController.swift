@@ -9,6 +9,7 @@ import UIKit
 
 class CalculatePizzaViewController: UIViewController {
     
+    
     @IBOutlet weak var pizzaSizeTextfield: UITextField!
     @IBOutlet weak var numberOfPeopleTextField: UITextField!
     
@@ -56,14 +57,11 @@ class CalculatePizzaViewController: UIViewController {
     
     @IBAction func CalculateButtonPressed(_ sender: Any) {
         model.peopleForPizza = endNumbersOfPeople
-        
-        if endNumbersOfPeople < 20 {
+        if endNumbersOfPeople < 100 {
             let results = calculatePizzas()
+            goToFinishView(result: results)
         } else {
-            let alert = UIAlertController(title: "Are you sure?", message: "You have too much people to your order!", preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK!", style: .default)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
+            popupAlert()
         }
     }
     
@@ -72,9 +70,27 @@ class CalculatePizzaViewController: UIViewController {
         let slices = cmToInches - 4
         let numberOfPizzas = (Double(model.peopleForPizza) * Double(model.pizzaSlices) / slices)
         let finishValue = Int(ceil(numberOfPizzas))
-        
         return finishValue
     }
+    
+    func popupAlert() {
+        let alert = UIAlertController(title: "Are you sure?", message: "You have too much people to your order!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK!", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func goToFinishView(result: Int) {
+        let thirdStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let thirdViewController = thirdStoryBoard.instantiateViewController(withIdentifier: "ResultsView") as! ResultsViewController
+        thirdViewController.finishValue = result
+        thirdViewController.delegate = self
+        thirdViewController.modalPresentationStyle = .overFullScreen
+        self.present(thirdViewController, animated: true) {
+            
+        }
+    }
+    
 }
 
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate Methods
@@ -113,5 +129,17 @@ extension CalculatePizzaViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return newNumber.length <= maxCharacters
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+}
+// MARK: - ResultsViewDelegate Method
+extension CalculatePizzaViewController: ResultsViewDelegate {
+    
+    func clearData() {
+        numberOfPeopleTextField.clearsOnBeginEditing = true
+        numberOfPeopleTextField.resignFirstResponder()
     }
 }

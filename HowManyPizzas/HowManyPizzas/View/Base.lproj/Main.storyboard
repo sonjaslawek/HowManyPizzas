@@ -70,7 +70,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="StartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wtc-rk-6Fl"/>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EY1-OG-4XI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -213,19 +213,19 @@
             </objects>
             <point key="canvasLocation" x="739.13043478260875" y="87.723214285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="ko3-z7-oyl">
             <objects>
-                <viewController id="5yF-Fv-M5Y" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsView" id="5yF-Fv-M5Y" customClass="ResultsViewController" customModule="HowManyPizzas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="avO-Te-QU1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThirdView" translatesAutoresizingMaskIntoConstraints="NO" id="X5r-cg-JBK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ResultsView" image="ThirdView" translatesAutoresizingMaskIntoConstraints="NO" id="X5r-cg-JBK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-no-IPk">
-                                <rect key="frame" x="97" y="570" width="220" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-no-IPk">
+                                <rect key="frame" x="97" y="576" width="220" height="43"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="CALC AGAIN? " cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
@@ -236,27 +236,27 @@
                                     <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="CalculateButtonPressed:" destination="jVa-gS-pjk" eventType="touchUpInside" id="Aas-9S-IRd"/>
+                                    <action selector="calcAgainButton:" destination="5yF-Fv-M5Y" eventType="touchUpInside" id="dGc-fn-WJH"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="gui-dT-ofU">
-                                <rect key="frame" x="89" y="242" width="237.5" height="269.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gui-dT-ofU">
+                                <rect key="frame" x="97" y="314" width="220" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You should order" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGJ-1h-3xo">
-                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <rect key="frame" x="2" y="0.0" width="216.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="obliczona wartosc " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obJ-5G-jOs">
-                                        <rect key="frame" x="48" y="124.5" width="142" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="46" width="220" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizzas! 😁" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyN-lR-Vbp">
-                                        <rect key="frame" x="46.5" y="230" width="144.5" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <rect key="frame" x="44" y="92" width="132" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -267,15 +267,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="X5r-cg-JBK" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" id="4T7-j0-60Z"/>
-                            <constraint firstItem="gui-dT-ofU" firstAttribute="top" secondItem="Cql-Sa-CbP" secondAttribute="top" constant="198" id="4tS-GZ-Fo0"/>
-                            <constraint firstItem="Cql-Sa-CbP" firstAttribute="trailing" secondItem="gui-dT-ofU" secondAttribute="trailing" constant="87.5" id="5rW-Gx-FQT"/>
+                            <constraint firstItem="Cql-Sa-CbP" firstAttribute="trailing" secondItem="hMl-no-IPk" secondAttribute="trailing" constant="97" id="8T0-OI-egm"/>
+                            <constraint firstItem="gui-dT-ofU" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" constant="97" id="BQD-Qn-SAO"/>
+                            <constraint firstItem="Cql-Sa-CbP" firstAttribute="trailing" secondItem="gui-dT-ofU" secondAttribute="trailing" constant="97" id="JDE-o9-pHg"/>
                             <constraint firstItem="X5r-cg-JBK" firstAttribute="top" secondItem="avO-Te-QU1" secondAttribute="top" id="Kb4-W7-SLN"/>
                             <constraint firstItem="X5r-cg-JBK" firstAttribute="trailing" secondItem="Cql-Sa-CbP" secondAttribute="trailing" id="LvJ-6q-HQb"/>
                             <constraint firstAttribute="bottom" secondItem="X5r-cg-JBK" secondAttribute="bottom" id="P5j-cF-pgg"/>
-                            <constraint firstItem="hMl-no-IPk" firstAttribute="top" secondItem="gui-dT-ofU" secondAttribute="bottom" constant="58.5" id="V5l-Vm-8S9"/>
-                            <constraint firstItem="gui-dT-ofU" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" constant="89" id="uB6-3n-4yh"/>
+                            <constraint firstItem="hMl-no-IPk" firstAttribute="leading" secondItem="Cql-Sa-CbP" secondAttribute="leading" constant="97" id="VqK-g6-HL6"/>
+                            <constraint firstItem="hMl-no-IPk" firstAttribute="top" secondItem="gui-dT-ofU" secondAttribute="bottom" constant="134" id="etr-Uf-a7J"/>
+                            <constraint firstItem="gui-dT-ofU" firstAttribute="top" secondItem="Cql-Sa-CbP" secondAttribute="top" constant="270" id="nh4-Cf-1p3"/>
+                            <constraint firstItem="Cql-Sa-CbP" firstAttribute="bottom" secondItem="hMl-no-IPk" secondAttribute="bottom" constant="243" id="rVQ-BM-KUt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="obJ-5G-jOs" id="9Lb-u7-a3k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIt-yU-f5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
