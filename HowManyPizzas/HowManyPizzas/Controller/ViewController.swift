@@ -14,10 +14,11 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func StartButton(_ sender: Any) {
+    @IBAction func startButton(_ sender: Any) {
 
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CalculatePizzaViewController") as! CalculatePizzaViewController
+        nextViewController.modalPresentationStyle = .overFullScreen
         self.present(nextViewController, animated: true, completion: nil)
     
     }
