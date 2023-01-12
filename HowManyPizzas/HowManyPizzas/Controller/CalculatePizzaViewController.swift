@@ -10,6 +10,7 @@ import UIKit
 class CalculatePizzaViewController: UIViewController {
     
     
+    @IBOutlet var calculateView: UIView!
     @IBOutlet weak var pizzaSizeTextfield: UITextField!
     @IBOutlet weak var numberOfPeopleTextField: UITextField!
     
@@ -19,7 +20,7 @@ class CalculatePizzaViewController: UIViewController {
         get {
             guard let peopleTextfield = numberOfPeopleTextField.text, let people = Int(peopleTextfield)
             else {
-                fatalError()
+                return 0
             }
             return people
         }
@@ -33,10 +34,13 @@ class CalculatePizzaViewController: UIViewController {
         picker.delegate = self
         numberOfPeopleTextField.delegate = self
         pizzaSizeTextfield.inputView = picker
-        
+        pizzaSizeTextfield.addTarget(self, action: #selector(checkTextfield), for: .editingDidEnd)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        calculateView.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func numberOfSlices(_ sender: UISegmentedControl) {
+    
         switch sender.selectedSegmentIndex {
         case 0:
             model.pizzaSlices = 1
@@ -56,8 +60,9 @@ class CalculatePizzaViewController: UIViewController {
     }
     
     @IBAction func CalculateButtonPressed(_ sender: Any) {
+        emptyLabels()
         model.peopleForPizza = endNumbersOfPeople
-        if endNumbersOfPeople < 100 {
+        if endNumbersOfPeople <= 50 {
             let results = calculatePizzas()
             goToFinishView(result: results)
         } else {
@@ -81,16 +86,35 @@ class CalculatePizzaViewController: UIViewController {
     }
     
     func goToFinishView(result: Int) {
-        let thirdStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let thirdStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let thirdViewController = thirdStoryBoard.instantiateViewController(withIdentifier: "ResultsView") as! ResultsViewController
         thirdViewController.finishValue = result
-        thirdViewController.delegate = self
         thirdViewController.modalPresentationStyle = .overFullScreen
-        self.present(thirdViewController, animated: true) {
-            
+        self.present(thirdViewController, animated: true)
+    }
+    
+    @objc func checkTextfield() {
+        if pizzaSizeTextfield.text == "Pick your size!" {
+            pizzaSizeTextfield.text = "Pick your size!"
+            pizzaSizeTextfield.layer.borderColor = UIColor.red.cgColor
+            pizzaSizeTextfield.layer.borderWidth = 1
+            pizzaSizeTextfield.textColor = UIColor.red
         }
     }
     
+    func emptyLabels() {
+        if model.pizzaSlices == 0 || endNumbersOfPeople == 0 || model.pizzaSize == 0 {
+            let alert = UIAlertController(title: "Have you completed all the fields?", message: "You need to complete all the fields to do the calculations 🙂", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK!", style: .default)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func viewTapped() {
+        pizzaSizeTextfield.endEditing(true)
+        numberOfPeopleTextField.endEditing(true)
+    }
 }
 
 // MARK: - UIPickerViewDataSource, UIPickerViewDelegate Methods
@@ -110,7 +134,6 @@ extension CalculatePizzaViewController: UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pizzaSizeTextfield.text = "\(pizzaSizes[row]) cm"
         model.pizzaSize = pizzaSizes[row]
-        pizzaSizeTextfield.resignFirstResponder()
     }
 }
 
@@ -130,16 +153,15 @@ extension CalculatePizzaViewController: UITextFieldDelegate {
         }
         return newNumber.length <= maxCharacters
     }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text == "" {
+            textField.text = "Enter number of people!"
+            textField.textColor = UIColor.systemRed
+            textField.layer.borderColor = UIColor.red.cgColor
+            textField.layer.borderWidth = 1
+            textField.becomeFirstResponder()
+        }
+        textField.resignFirstResponder()
         return true
-    }
-}
-// MARK: - ResultsViewDelegate Method
-extension CalculatePizzaViewController: ResultsViewDelegate {
-    
-    func clearData() {
-        numberOfPeopleTextField.clearsOnBeginEditing = true
-        numberOfPeopleTextField.resignFirstResponder()
     }
 }

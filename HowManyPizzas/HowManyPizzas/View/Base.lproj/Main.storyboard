@@ -207,6 +207,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="calculateView" destination="moq-8C-nEn" id="66H-7U-giP"/>
                         <outlet property="numberOfPeopleTextField" destination="Sjz-f2-e41" id="NRG-CR-jvP"/>
                         <outlet property="pizzaSizeTextfield" destination="ENX-By-glf" id="bTT-hh-3gh"/>
                     </connections>

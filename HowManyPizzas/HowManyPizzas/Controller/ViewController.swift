@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     @IBAction func startButton(_ sender: Any) {
@@ -22,6 +21,5 @@ class ViewController: UIViewController {
         self.present(nextViewController, animated: true, completion: nil)
     
     }
-    
 }
 
