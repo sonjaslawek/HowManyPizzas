@@ -4,6 +4,7 @@ I present you a simple and nice application to calculate how much pizza we need 
 
 ## Table of contents
 * [About my app :iphone:](#about-my-app)
+* [TL TR :page_with_curl:](#tl-tr)
 * [Technologies :gear:](#technologies)
 
 ## About my app 
@@ -29,6 +30,17 @@ After entering all the data and pressing the **GET RESULT** button, the applicat
 <div align="center">
 I invite you to try out my app! Contact me if you have any valuable comments or questions! 😄 
 </div>
+
+## TL TR
+What I have used in my project:
+* Xcode
+* MVC
+* UIKit
+* Textfields and PickerView with delegates
+* AutoLayout
+* Git
+* Basic validations
+* UIAlert
 	
 ## Technologies
 Project is created with:
