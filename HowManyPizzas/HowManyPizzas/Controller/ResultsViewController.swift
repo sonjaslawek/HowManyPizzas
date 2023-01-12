@@ -7,20 +7,12 @@
 
 import UIKit
 
-protocol ResultsViewDelegate: class {
-    func clearData()
-}
-
 class ResultsViewController: UIViewController {
-    
     
     @IBOutlet weak var resultLabel: UILabel!
     
-    weak var delegate: ResultsViewDelegate?
-    
     var finishValue = Int()
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         resultLabel.text = String(finishValue)
@@ -28,13 +20,9 @@ class ResultsViewController: UIViewController {
     
     @IBAction func calcAgainButton(_ sender: Any) {
         
-        delegate?.clearData()
-        self.dismiss(animated: true, completion: nil)
-        
-        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CalculatePizzaViewController") as! CalculatePizzaViewController
+        nextViewController.modalPresentationStyle = .overFullScreen
+        self.present(nextViewController, animated: true, completion: nil)
     }
-    
-    
-    
-
 }
